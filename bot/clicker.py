@@ -86,6 +86,7 @@ class ClickHamster:
     def run(self):
         with requests.Session() as link:
             while True:
+                flag = False
                 web_data = self.get_web_data()
                 auth_token = self.login_hamster(link=link, web_data=web_data)
             
@@ -116,9 +117,10 @@ class ClickHamster:
                     status = self.activation_boost(link=link, boost= "BoostFullAvailableTaps")
                     if status:
                         print('Активация буста')
+                        flag = True
                         time.sleep(5)
                         
-                if int(available_energy) < settings.MIN_ENERGY:        
+                if int(available_energy) < settings.MIN_ENERGY and flag == False:        
                     print(f"Энергия закончилась. Осталось {settings.SLEEP_TIME} секунд")
                     time.sleep(settings.SLEEP_TIME)
 
