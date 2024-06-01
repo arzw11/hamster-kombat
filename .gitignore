@@ -1,0 +1,6 @@
+/venv
+settings.env
+/bot/__pycache__
+/config/proxy
+/config/__pycache__
+/my_session.session
