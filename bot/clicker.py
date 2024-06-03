@@ -76,7 +76,7 @@ class ClickHamster:
             response = link.post('https://api.hamsterkombat.io/clicker/tap',
                                  proxies=proxy,
                                  headers=headers,
-                                 json={'availableTaps': available_energy, 'count': click, 'timestamp': 1})
+                                 json={'availableTaps': available_energy, 'count': click, 'timestamp': time()})
             response.raise_for_status()
 
             player_data = response.json()['clickerUser']
